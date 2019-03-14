@@ -1,0 +1,258 @@
+fileFormatVersion: 2
+guid: bd5297d9a5b63ad48912675a84018a7b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Car
+    100002: //RootNode
+    100004: DoorL
+    100006: DoorR
+    100008: DoorWindowL
+    100010: DoorWindowR
+    100012: Engine
+    100014: Hood
+    100016: Seat1
+    100018: Seat2
+    100020: Steeringwheel
+    100022: Trunk
+    100024: WheelBL
+    100026: WheelBR
+    100028: WheelFL
+    100030: WheelFR
+    100032: Windows
+    400000: Car
+    400002: //RootNode
+    400004: DoorL
+    400006: DoorR
+    400008: DoorWindowL
+    400010: DoorWindowR
+    400012: Engine
+    400014: Hood
+    400016: Seat1
+    400018: Seat2
+    400020: Steeringwheel
+    400022: Trunk
+    400024: WheelBL
+    400026: WheelBR
+    400028: WheelFL
+    400030: WheelFR
+    400032: Windows
+    2300000: Car
+    2300002: DoorL
+    2300004: DoorR
+    2300006: DoorWindowL
+    2300008: DoorWindowR
+    2300010: Engine
+    2300012: Hood
+    2300014: Seat1
+    2300016: Seat2
+    2300018: Steeringwheel
+    2300020: Trunk
+    2300022: WheelBL
+    2300024: WheelBR
+    2300026: WheelFL
+    2300028: WheelFR
+    2300030: Windows
+    3300000: Car
+    3300002: DoorL
+    3300004: DoorR
+    3300006: DoorWindowL
+    3300008: DoorWindowR
+    3300010: Engine
+    3300012: Hood
+    3300014: Seat1
+    3300016: Seat2
+    3300018: Steeringwheel
+    3300020: Trunk
+    3300022: WheelBL
+    3300024: WheelBR
+    3300026: WheelFL
+    3300028: WheelFR
+    3300030: Windows
+    4300000: Engine
+    4300002: Hood
+    4300004: Trunk
+    4300006: WheelBR
+    4300008: Windows
+    4300010: DoorWindowR
+    4300012: DoorR
+    4300014: WheelFR
+    4300016: WheelBL
+    4300018: WheelFL
+    4300020: Steeringwheel
+    4300022: DoorWindowL
+    4300024: Seat2
+    4300026: Seat1
+    4300028: DoorL
+    4300030: Car
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crome
+    second: {fileID: 2100000, guid: 8bf1315c1006ad547a7e632b8670703d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: eb7c4cebd13abb64493e57a47566ddfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gray
+    second: {fileID: 2100000, guid: d278c1832c7fac747ad393b57125899f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Headlights
+    second: {fileID: 2100000, guid: 7c629ab3a21f6844bbe5ac9626bed670, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: a1be880900fba874ba5b0d8a8d59b9c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mirror
+    second: {fileID: 2100000, guid: b1cce06bb88cda9439b2eb7291594bea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PriCarColor
+    second: {fileID: 2100000, guid: 43dfabeee1bd5fd4ba00b3124846833e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PriInterior
+    second: {fileID: 2100000, guid: 45e40248723a37c4b940c7e030d1c655, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rearlights
+    second: {fileID: 2100000, guid: 7027c2918332dd947b16fe6811e8b19e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Seat1
+    second: {fileID: 2100000, guid: 0a5978360638440448d78ef61d4e4b4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Seat2
+    second: {fileID: 2100000, guid: b7ffaf62e9bacbf45ad743463b2bdb78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SecCarColor
+    second: {fileID: 2100000, guid: 19409b66dc0728040a44b2794a606af8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SecInterior
+    second: {fileID: 2100000, guid: a29546b3198661440a66445dcd8bc3fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Steeringwheel
+    second: {fileID: 2100000, guid: 7dd39cb8763de274d9e85d8a7c33d841, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TurnsignalL
+    second: {fileID: 2100000, guid: eacf8eae7fa33814caa5c1eb12b78cb5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TurnsignalR
+    second: {fileID: 2100000, guid: 66e7a77d2797d24409b4f73c53d8737a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel
+    second: {fileID: 2100000, guid: da2943d5301e2564e96a133c96304682, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
