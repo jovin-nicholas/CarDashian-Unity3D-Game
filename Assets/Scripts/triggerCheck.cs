@@ -13,6 +13,7 @@ public class triggerCheck : MonoBehaviour
     public static bool triggered;
     public static int count=1;
     public static int wall=0;
+    public static float time=0;
     float s, r;
     //float speed, power;
 
@@ -74,12 +75,14 @@ public class triggerCheck : MonoBehaviour
 
             Score();
 
+           
             //StartCoroutine(CreateWall());
             
         }
     //}
     }
 
+   
     void Score()
     {
 

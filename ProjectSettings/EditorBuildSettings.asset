@@ -21,9 +21,15 @@ EditorBuildSettings:
     path: Assets/Scenes/CarFP2.6.5.unity
     guid: 07ef217b6f115044483a6301be8336e1
   - enabled: 1
-    path: Assets/Scenes/DreamCar.unity
-    guid: c13ea628d0c8e524bb928189f49574af
+    path: Assets/Scenes/DreamCar2.unity
+    guid: 46b21be0c53e15e4987651448ca2b41a
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 379bd5ec531402c4680a5864c9cecd71
+  - enabled: 0
+    path: Assets/Scenes/Loader.unity
+    guid: ca75f76dbc3ad1d4fad508408d33f785
+  - enabled: 0
+    path: Assets/Scenes/DreamCar.unity
+    guid: c13ea628d0c8e524bb928189f49574af
   m_configObjects: {}

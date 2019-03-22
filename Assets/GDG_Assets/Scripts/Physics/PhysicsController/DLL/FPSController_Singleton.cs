@@ -95,12 +95,12 @@ public class FPSController_Singleton : MonoBehaviour
 		// Performance manager. Lowers the number of physics calculations as framrate decreases. Max is 7
 		if (frameRate < 70)
 		{
-			Physics.solverIterationCount = (int) (frameRate / 10);
+			Physics.defaultSolverIterations = (int) (frameRate / 10);
 		}
 		
 		else 
 		{
-			Physics.solverIterationCount = 7;
+			Physics.defaultSolverIterations = 7;
 		}
 		
 		SetBreakabilityState ();

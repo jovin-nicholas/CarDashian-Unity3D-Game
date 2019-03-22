@@ -11,7 +11,15 @@ public class Car_Script : MonoBehaviour
     float rotationSpeed = 50.0f;
     */
     public Rigidbody rb;
+    public AudioClip bruh;
+    //public AudioClip hp;
+    private AudioSource source;
 
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+        
+    }
 
     void Update()
     {
@@ -34,14 +42,16 @@ public class Car_Script : MonoBehaviour
 
         if (rb.position.y < 0.0f)
         {
+            source.PlayOneShot(bruh,0.6F);
             //rb.rotation = new Quaternion(90f,90f,180f,90f);
             StartCoroutine(Reset());
         }
-    
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
-
+        /*
+        if (rb.position.y > 5)
+            source.PlayOneShot(hp, 0.2F);
+        */
+      
 
         /*
         if(rb.rotation.x < -0.2f || rb.rotation.z < -0.2f)

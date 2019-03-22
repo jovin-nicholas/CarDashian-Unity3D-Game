@@ -16,14 +16,17 @@ public class AccelerometerInput : MonoBehaviour {
     public Slider slider;
     public Rigidbody rb;
     public Toggle d;
-    public Toggle n;
+    //public Toggle n;
     public Toggle r;
     public static AccelerometerInput instance;
 
     void Start()
     {
         instance = this;
- 
+        
+        // Disable screen dimming
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+     
     }
 
     void FixedUpdate()

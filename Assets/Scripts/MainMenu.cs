@@ -7,14 +7,15 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Text rank;
-
+  
     public void PlayGame()
     {
-        SceneManager.LoadScene(2);
-
+        //SceneManager.LoadScene(4);
+        //PauseMenu.GameIsPaused = false;
     }
+    
 
-    public void TrackSelect()
+    public void CrazyWorld()
     {
         SceneManager.LoadScene(1);
 
@@ -26,11 +27,13 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    /*
     public void Track01()
     {
         SceneManager.LoadScene(2);
 
     }
+    */
     public void QuitGame()
     {
         Debug.Log("QUIT");
@@ -39,7 +42,10 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        rank.text = "" + Health.R;
+        if (Input.GetKeyDown(KeyCode.Escape))
+            QuitGame();
+
+        rank.text = "" + PlayerPrefs.GetInt("rank",1);
     }
 
 }

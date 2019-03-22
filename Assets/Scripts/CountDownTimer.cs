@@ -10,35 +10,115 @@ public class CountDownTimer : MonoBehaviour
     float currentTime = 0f;
     float startingTime = 90f;
     public static bool gameover;
+    public bool start;
+    public bool created;
+    public Slider slider;
+    public GameObject CurveArrow;
+    public GameObject FloatingText1;
+    public GameObject FloatingText2;
+    public Rigidbody car;
+    //SoundManager soundManager;
+
+    public Transform parentCanvas;
 
     [SerializeField] Text countdownText;
 
-	void Start ()
+    void Awake()
+    {
+        //car = gameObject.GetComponent<Rigidbody>();
+        //StartCoroutine(StartingText());
+    }
+
+    void Start ()
     {
         currentTime = startingTime;
-    
+       // soundManager = car.gameObject.GetComponent<SoundManager>();
 		
 	}
 	
 	
 	void Update ()
     {
-        if (PauseMenu.GameIsPaused)
+        if (slider.value > 0)
+            start = true;
+
+        if (start)
+        {
+
+
+            if (PauseMenu.GameIsPaused)
+                currentTime = currentTime + 0;
+
+            else
+            {
+                currentTime -= 1 * Time.deltaTime;
+                countdownText.text = currentTime.ToString("0");
+
+                if (currentTime <= 10)
+                    countdownText.color = Color.red;
+
+                if (currentTime <= 0)
+                {
+                    currentTime = 0;
+                    SceneManager.LoadScene(3);
+                    gameover = true;
+                    
+                }
+
+            }
+        }
+
+        else
             currentTime = currentTime + 0;
+        
+        if (WallCollider.over)
+        {
+            triggerCheck.time = currentTime;
+            WallCollider.over = false;
+
+        }
+        
+        StartCoroutine(StartingText());
+
+    }
+
+
+
+    IEnumerator StartingText()
+    {
+
+        if (!start)
+        {
+            if (!created)
+            {
+                FloatingText1.SetActive(true);
+
+                //FloatingText1 = Instantiate(FloatingText1, new Vector3(410, 320, 0), Quaternion.identity, parentCanvas);
+                //FloatingText1.transform.SetParent(parentCanvas, false);
+
+                CurveArrow = Instantiate(CurveArrow, new Vector3(car.position.x +15,car.position.y+10,car.position.z-24), new Quaternion(200,120,0,0));
+            }
+            created = true;
+        }
 
         else
         {
-            currentTime -= 1 * Time.deltaTime;
-            countdownText.text = currentTime.ToString("0");
 
-            if (currentTime <= 0)
+            FloatingText1.SetActive(false);
+            //Destroy(FloatingText1);
+            Destroy(CurveArrow);
+            //yield return new WaitForSeconds(2f);
+            if (created)
             {
-                currentTime = 0;
-                SceneManager.LoadScene(3);
-                gameover = true;
-
+                FloatingText2.SetActive(true);
+                //FloatingText2 = Instantiate(FloatingText2, new Vector3(415, 430, 0), Quaternion.identity, parentCanvas);
+                //FloatingText2.transform.SetParent(parentCanvas, false);
+                //Destroy(FloatingText2,2f);
+                //soundManager.UpdateAudioCollection();
             }
-
         }
-	}
+
+        yield return null;
+    }
+    
 }

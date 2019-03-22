@@ -12,7 +12,7 @@ public class AccCar : MonoBehaviour, IPointerDownHandler , IPointerUpHandler
     public Toggle n;
     public Toggle r;
     public Slider aslider;
-    public GameObject ReverseCam;
+    //public GameObject ReverseCam;
     public static float damage = 0;
 
     public virtual void OnPointerUp(PointerEventData p)
@@ -31,10 +31,10 @@ public class AccCar : MonoBehaviour, IPointerDownHandler , IPointerUpHandler
     {
         if (d.isOn)
         {
-            ReverseCam.SetActive(false);
+            //ReverseCam.SetActive(false);
             if (isPointerDown)
             {
-                CarSpeed = CarSpeed + 500f * aslider.value;
+                CarSpeed = CarSpeed + 750f * aslider.value;
             }
 
             else
@@ -46,11 +46,11 @@ public class AccCar : MonoBehaviour, IPointerDownHandler , IPointerUpHandler
 
         else if (r.isOn)
         {
-            ReverseCam.SetActive(true);
+            //ReverseCam.SetActive(true);
 
             if (isPointerDown)
             {
-                CarSpeed -= 350f * aslider.value;
+                CarSpeed = CarSpeed - 350f * aslider.value;
             }
 
             else
@@ -66,7 +66,7 @@ public class AccCar : MonoBehaviour, IPointerDownHandler , IPointerUpHandler
 
         else
         {
-            ReverseCam.SetActive(false);
+            //ReverseCam.SetActive(false);
             CarSpeed = 0;
         }
 

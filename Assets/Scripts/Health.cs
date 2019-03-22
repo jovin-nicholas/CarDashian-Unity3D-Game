@@ -13,13 +13,17 @@ public class Health : MonoBehaviour
     public Text text;
     float score;
     bool collide;
-    public static int R = 1;
-    public static int S = 0;
+    //public static int R;
+    //public static float S;
+    public Toggle view;
+    int clicked = 0;
 
     void Start()
     {
         decrement = 1 / 60f;
         collide = true;
+        //PlayerPrefs.SetInt("rank", R);
+        //R = PlayerPrefs.GetInt("rank", 1);
     }
 
     void Update()
@@ -49,6 +53,20 @@ public class Health : MonoBehaviour
 
         //StartCoroutine(WallCollide());
         //WallCollide();
+    }
+
+    public void OnClick()
+    {
+        
+        if (view.isOn)
+        {
+            clicked++;
+            if (clicked == 10)
+            {
+                triggerCheck.score += 500;
+                //text.text = " " + score;
+            }
+        }
     }
 
 }

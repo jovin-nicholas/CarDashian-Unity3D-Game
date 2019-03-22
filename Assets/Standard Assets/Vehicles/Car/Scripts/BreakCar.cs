@@ -46,7 +46,7 @@ public class BreakCar : MonoBehaviour, IPointerDownHandler,IPointerUpHandler
     {
         if(b)
             Car.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            AccCar.CarSpeed = Mathf.Clamp(AccCar.CarSpeed - 15f , 0, 150);
+            AccCar.CarSpeed = Mathf.Clamp(AccCar.CarSpeed - 25f , 0, 150);
 
 
         //Debug.Log("Velocity" + Car.velocity);

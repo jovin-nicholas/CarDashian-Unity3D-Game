@@ -8,7 +8,6 @@ public class Marker : MonoBehaviour
     public GameObject bomb;
     public Slider power;
     public Rigidbody car;
-    bool triggered;
     public static float health;
     public Text text;
 
@@ -41,7 +40,7 @@ public class Marker : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("RespawnPower", 10.0f, 5f);
+        InvokeRepeating("RespawnPower", 10.0f, 8f);
 
     }
 
@@ -54,97 +53,97 @@ public class Marker : MonoBehaviour
 
         if (MarkTracker == 1)
         {
-            TheMarker.transform.position = MARK24.transform.position;
+            TheMarker.transform.position = MARK02.transform.position;
         }
         if (MarkTracker == 2)
         {
-            TheMarker.transform.position = MARK02.transform.position;
+            TheMarker.transform.position = MARK03.transform.position;
         }
 
         if (MarkTracker == 3)
         {
-            TheMarker.transform.position = MARK23.transform.position;
+            TheMarker.transform.position = MARK04.transform.position;
         }
         if (MarkTracker == 4)
         {
-            TheMarker.transform.position = MARK03.transform.position;
+            TheMarker.transform.position = MARK05.transform.position;
         }
         if (MarkTracker == 5)
         {
-            TheMarker.transform.position = MARK22.transform.position;
+            TheMarker.transform.position = MARK06.transform.position;
         }
         if (MarkTracker == 6)
         {
-            TheMarker.transform.position = MARK04.transform.position;
+            TheMarker.transform.position = MARK07.transform.position;
         }
         if (MarkTracker == 7)
         {
-            TheMarker.transform.position = MARK21.transform.position;
+            TheMarker.transform.position = MARK08.transform.position;
         }
         if (MarkTracker == 8)
         {
-            TheMarker.transform.position = MARK05.transform.position;
+            TheMarker.transform.position = MARK09.transform.position;
         }
         if (MarkTracker == 9)
         {
-            TheMarker.transform.position = MARK20.transform.position;
+            TheMarker.transform.position = MARK10.transform.position;
 
         }
         if (MarkTracker == 10)
         {
-            TheMarker.transform.position = MARK06.transform.position;
+            TheMarker.transform.position = MARK11.transform.position;
         }
         if (MarkTracker == 11)
         {
-            TheMarker.transform.position = MARK19.transform.position;
+            TheMarker.transform.position = MARK12.transform.position;
         }
         if (MarkTracker == 12)
         {
-            TheMarker.transform.position = MARK07.transform.position;
+            TheMarker.transform.position = MARK13.transform.position;
         }
         if (MarkTracker == 13)
         {
-            TheMarker.transform.position = MARK18.transform.position;
+            TheMarker.transform.position = MARK14.transform.position;
         }
         if (MarkTracker == 14)
         {
-            TheMarker.transform.position = MARK08.transform.position;
+            TheMarker.transform.position = MARK15.transform.position;
         }
         if (MarkTracker == 15)
         {
-            TheMarker.transform.position = MARK17.transform.position;
+            TheMarker.transform.position = MARK16.transform.position;
         }
         if (MarkTracker == 16)
         {
-            TheMarker.transform.position = MARK09.transform.position;
+            TheMarker.transform.position = MARK17.transform.position;
         }
         if (MarkTracker == 17)
         {
-            TheMarker.transform.position = MARK16.transform.position;
+            TheMarker.transform.position = MARK18.transform.position;
         }
         if (MarkTracker == 18)
         {
-            TheMarker.transform.position = MARK10.transform.position;
+            TheMarker.transform.position = MARK19.transform.position;
         }
         if (MarkTracker == 19)
         {
-            TheMarker.transform.position = MARK15.transform.position;
+            TheMarker.transform.position = MARK20.transform.position;
         }
         if (MarkTracker == 20)
         {
-            TheMarker.transform.position = MARK11.transform.position;
+            TheMarker.transform.position = MARK21.transform.position;
         }
         if (MarkTracker == 21)
         {
-            TheMarker.transform.position = MARK14.transform.position;
+            TheMarker.transform.position = MARK22.transform.position;
         }
         if (MarkTracker == 22)
         {
-            TheMarker.transform.position = MARK12.transform.position;
+            TheMarker.transform.position = MARK23.transform.position;
         }
         if (MarkTracker == 23)
         {
-            TheMarker.transform.position = MARK13.transform.position;
+            TheMarker.transform.position = MARK24.transform.position;
         }
 
     }
@@ -175,7 +174,9 @@ public class Marker : MonoBehaviour
             triggerCheck.count++;
             text.text = "" + triggerCheck.count;
 
-            triggered = false;
+            SSTools.ShowMessage(" x" + triggerCheck.count, SSTools.Position.top, SSTools.Time.twoSecond);
+
+
         }
     }
 
