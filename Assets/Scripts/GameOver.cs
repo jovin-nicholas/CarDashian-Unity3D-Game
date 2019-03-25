@@ -15,6 +15,7 @@ public class GameOver : MonoBehaviour
     int R;
     float ScoreMultiplier;
     float RankMultiplier;
+    float v = 0;
     int rem, sc, count, S, bestScore;
 
 
@@ -42,7 +43,7 @@ public class GameOver : MonoBehaviour
 
             //WallCollider.rem = 0;
             Score();
-            LevelUp();
+            StartCoroutine(LevelUp());
             CountDownTimer.gameover = false;
             WallCollider.over = false;
         }
@@ -82,8 +83,9 @@ public class GameOver : MonoBehaviour
         AccCar.damage = 0;
     }
 
-    void LevelUp()
+    IEnumerator LevelUp()
     {
+        yield return null;
         //level.text = "" + Health.R;
      
         RankMultiplier = 1.2f * R;
@@ -92,9 +94,15 @@ public class GameOver : MonoBehaviour
         float finalValue = currentValue + ScoreMultiplier;
         //Health.S += ScoreMultiplier; 
 
-        if(finalValue < rank.maxValue)
+        if (finalValue < rank.maxValue)
             //rank.value = finalValue + ScoreMultiplier;
-            rank.value = Mathf.MoveTowards(currentValue,finalValue,Time.timeSinceLevelLoad * 0.035f);
+            //rank.value = Mathf.MoveTowards(currentValue,finalValue,Time.timeSinceLevelLoad * 0.035f);
+            v = currentValue;
+            while (v <= rank.value)
+            {
+                v = Mathf.Clamp01(finalValue / .9f);
+                rank.value = v;
+            }
 
         while (finalValue >= rank.maxValue)
         {
@@ -104,7 +112,12 @@ public class GameOver : MonoBehaviour
             ScoreMultiplier = finalValue / RankMultiplier;
             
             //rank.value = finalValue;
-            rank.value = Mathf.Lerp(0,finalValue,Time.deltaTime * 2.02f);
+            while(v <= rank.value)
+            {
+                v = Mathf.Clamp01(finalValue/.9f);
+                rank.value = v;
+            }
+            //rank.value = Mathf.Lerp(0,finalValue,Time.deltaTime * 2.02f);
             //Health.SliderValue = 0;
         }
 
