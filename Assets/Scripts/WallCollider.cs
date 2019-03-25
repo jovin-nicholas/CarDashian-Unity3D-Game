@@ -67,11 +67,11 @@ public class WallCollider : MonoBehaviour
     IEnumerator SceneChange()
     {
         yield return new WaitForSeconds(1f);
+        triggerCheck.wall = 0;
         CountDownTimer.gameover = true;
         //rem += 1*Time.deltaTime;
         over = true;
-        SceneManager.LoadScene(3);
-        triggerCheck.wall = 0;
+        //SceneManager.LoadScene(3);
 
     }
 

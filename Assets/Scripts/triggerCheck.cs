@@ -13,7 +13,7 @@ public class triggerCheck : MonoBehaviour
     public static bool triggered;
     public static int count=1;
     public static int wall=0;
-    public static float time=0;
+    public static int time=0;
     float s, r;
     //float speed, power;
 
@@ -99,7 +99,7 @@ public class triggerCheck : MonoBehaviour
             s = -car.velocity.z;
 
         
-        AccCar.damage = AccCar.damage + 0.02f * r + 0.05f * s ;
+        AccCar.damage = AccCar.damage + 0.02f * r + 0.02f * s ;
         if (AccCar.damage >= 0)
             score = (int)AccCar.damage;
         

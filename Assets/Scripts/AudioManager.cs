@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     bool soundOn;
     public SoundManager soundManager;
+    //public Toggle mute;
 
     void Start()
     {
@@ -34,6 +36,7 @@ public class AudioManager : MonoBehaviour
             soundOffIcon.SetActive(false);
             */        
             soundManager.UnMute();
+           //mute.isOn = false;
         }
         else
         {
@@ -42,6 +45,7 @@ public class AudioManager : MonoBehaviour
             soundOffIcon.SetActive(true);
             */        
             soundManager.Mute();
+            //mute.isOn = true;
         }
     }
 

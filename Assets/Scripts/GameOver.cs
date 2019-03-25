@@ -10,12 +10,12 @@ public class GameOver : MonoBehaviour
     public Text remTime;
     public Text level;
     public Text FinalScore;
+    public Text BestScore;
     public Slider rank;
     int R;
     float ScoreMultiplier;
     float RankMultiplier;
-    int rem;
-    int sc, count, S;
+    int rem, sc, count, S, bestScore;
 
 
     // Start is called before the first frame update
@@ -23,6 +23,8 @@ public class GameOver : MonoBehaviour
     {
         //FinalScore.text = "";
         R = PlayerPrefs.GetInt("rank", 1);
+        bestScore = PlayerPrefs.GetInt("best", 0);
+
     }
 
     // Update is called once per frame
@@ -30,18 +32,19 @@ public class GameOver : MonoBehaviour
     {
         sc = triggerCheck.score;
         count = triggerCheck.count;
+        rem = triggerCheck.time;
         
-        rem = (int)triggerCheck.time;
         Debug.Log(triggerCheck.time);
-        
 
-        if (CountDownTimer.gameover)
+
+        if (CountDownTimer.gameover || WallCollider.over)
         {
-            //Debug.Log(WallCollider.rem);
+
             //WallCollider.rem = 0;
             Score();
             LevelUp();
             CountDownTimer.gameover = false;
+            WallCollider.over = false;
         }
 
     }
@@ -52,11 +55,24 @@ public class GameOver : MonoBehaviour
         multiplier.text = "" + count;
         remTime.text = "" + rem;
 
-        S = triggerCheck.count * triggerCheck.score + (int)triggerCheck.time;
+        S = triggerCheck.count * triggerCheck.score + triggerCheck.time;
         //yield return new WaitForSeconds(2);
         //Health.S = S + Health.S;
         FinalScore.text = "" + S;
-        remTime.text = "" + triggerCheck.time;
+        remTime.text = "" + rem;
+
+        if (bestScore < S)
+        {
+            bestScore = S;
+            PlayerPrefs.SetInt("best", S);
+
+        }
+        /*
+        else
+            PlayerPrefs.SetInt("best", bestScore);
+        */
+        //bestScore = PlayerPrefs.GetInt("best", 0);
+        BestScore.text = "" + bestScore;
 
         //S = 0;
         triggerCheck.score = 0;

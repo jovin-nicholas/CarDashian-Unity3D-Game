@@ -7,16 +7,18 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public Slider health;
-    float decrement;
-    public Toggle r;
-    public Text text;
-    float score;
-    bool collide;
+    //public Slider health;
     //public static int R;
     //public static float S;
+
+    public Toggle r;
+    public Text text;
     public Toggle view;
+
     int clicked = 0;
+    float decrement;
+    float score;
+    bool collide;
 
     void Start()
     {
@@ -31,7 +33,8 @@ public class Health : MonoBehaviour
 
         score = triggerCheck.score;
         text.text = " " + score;
-        if (r.isOn)
+
+        /*if (r.isOn)
         {
             health.value = Mathf.MoveTowards(health.value, -150.0f, 2 * decrement);
 
@@ -50,6 +53,7 @@ public class Health : MonoBehaviour
                 health.value -= 10;
             }
         }
+        */
 
         //StartCoroutine(WallCollide());
         //WallCollide();

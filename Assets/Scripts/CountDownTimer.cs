@@ -17,6 +17,7 @@ public class CountDownTimer : MonoBehaviour
     public GameObject FloatingText1;
     public GameObject FloatingText2;
     public Rigidbody car;
+    int rem;
     //SoundManager soundManager;
 
     public Transform parentCanvas;
@@ -32,6 +33,7 @@ public class CountDownTimer : MonoBehaviour
     void Start ()
     {
         currentTime = startingTime;
+        CurveArrow = Instantiate(CurveArrow, new Vector3(car.position.x + 15, car.position.y + 10, car.position.z - 24), new Quaternion(200, 120, 0, 0));
        // soundManager = car.gameObject.GetComponent<SoundManager>();
 		
 	}
@@ -73,11 +75,14 @@ public class CountDownTimer : MonoBehaviour
         
         if (WallCollider.over)
         {
-            triggerCheck.time = currentTime;
-            WallCollider.over = false;
-
+            rem = (int)currentTime;
+            Debug.Log(rem);
+            triggerCheck.time = rem;
+            //WallCollider.over = false;
+            triggerCheck.wall = 0;
+            SceneManager.LoadScene(3);
         }
-        
+          
         StartCoroutine(StartingText());
 
     }
@@ -86,38 +91,41 @@ public class CountDownTimer : MonoBehaviour
 
     IEnumerator StartingText()
     {
-
-        if (!start)
+        if (PauseMenu.GameIsPaused)
         {
-            if (!created)
-            {
-                FloatingText1.SetActive(true);
-
-                //FloatingText1 = Instantiate(FloatingText1, new Vector3(410, 320, 0), Quaternion.identity, parentCanvas);
-                //FloatingText1.transform.SetParent(parentCanvas, false);
-
-                CurveArrow = Instantiate(CurveArrow, new Vector3(car.position.x +15,car.position.y+10,car.position.z-24), new Quaternion(200,120,0,0));
-            }
-            created = true;
+            FloatingText1.SetActive(false);
+            created = false;
         }
 
         else
         {
-
-            FloatingText1.SetActive(false);
-            //Destroy(FloatingText1);
-            Destroy(CurveArrow);
-            //yield return new WaitForSeconds(2f);
-            if (created)
+            if (!start)
             {
-                FloatingText2.SetActive(true);
-                //FloatingText2 = Instantiate(FloatingText2, new Vector3(415, 430, 0), Quaternion.identity, parentCanvas);
-                //FloatingText2.transform.SetParent(parentCanvas, false);
-                //Destroy(FloatingText2,2f);
-                //soundManager.UpdateAudioCollection();
+                if (!created)
+                {
+                    FloatingText1.SetActive(true);
+                    //FloatingText1 = Instantiate(FloatingText1, new Vector3(410, 320, 0), Quaternion.identity, parentCanvas);
+
+                }
+                created = true;
+            }
+
+
+            else
+            {
+
+                FloatingText1.SetActive(false);
+                //Destroy(FloatingText1);
+                Destroy(CurveArrow);
+                //yield return new WaitForSeconds(2f);
+                if (created)
+                {
+                    FloatingText2.SetActive(true);
+                    //FloatingText2 = Instantiate(FloatingText2, new Vector3(415, 430, 0), Quaternion.identity, parentCanvas);
+                    //soundManager.UpdateAudioCollection();
+                }
             }
         }
-
         yield return null;
     }
     
