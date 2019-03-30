@@ -34,12 +34,12 @@ public class Health : MonoBehaviour
         score = triggerCheck.score;
         text.text = " " + score;
 
-        /*if (r.isOn)
+        if (r.isOn)
         {
-            health.value = Mathf.MoveTowards(health.value, -150.0f, 2 * decrement);
+            //health.value = Mathf.MoveTowards(health.value, -150.0f, 2 * decrement);
 
         }
-
+        /*
         else
         {
             health.value = Mathf.MoveTowards(health.value, -150.0f, decrement);

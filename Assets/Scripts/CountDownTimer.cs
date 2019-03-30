@@ -16,8 +16,12 @@ public class CountDownTimer : MonoBehaviour
     public GameObject CurveArrow;
     public GameObject FloatingText1;
     public GameObject FloatingText2;
+    public GameObject FloatingText3;
+    public GameObject FloatingText4;
     public Rigidbody car;
+    public Toggle R;
     int rem;
+    bool c,v;
     //SoundManager soundManager;
 
     public Transform parentCanvas;
@@ -77,19 +81,48 @@ public class CountDownTimer : MonoBehaviour
         {
             rem = (int)currentTime;
             Debug.Log(rem);
-            triggerCheck.time = rem;
+            triggerCheck.time = rem + 3;
             //WallCollider.over = false;
             triggerCheck.wall = 0;
             SceneManager.LoadScene(3);
         }
-          
-        StartCoroutine(StartingText());
 
+        if (R.isOn)
+        {
+            StartCoroutine(ReverseText());
+        }
+
+        else
+            v = false;
+        //StartCoroutine(StartingText());
+
+        StartingText();
+    }
+
+    IEnumerator ReverseText()
+    {
+        if (!v)
+        {
+
+            if (PauseMenu.GameIsPaused)
+                FloatingText4.SetActive(false);
+
+            else
+            {
+
+                FloatingText4.SetActive(true);
+                yield return new WaitForSeconds(2f);
+                FloatingText4.SetActive(false);
+                //CurveArrow.SetActive(true);
+                //CurveArrow = Instantiate(CurveArrow, new Vector3(car.position.x + 15, car.position.y + 10, car.position.z - 24), new Quaternion(200, 120, 0, 0));
+
+                v = true;
+            }
+        }
     }
 
 
-
-    IEnumerator StartingText()
+    void StartingText()
     {
         if (PauseMenu.GameIsPaused)
         {
@@ -115,18 +148,27 @@ public class CountDownTimer : MonoBehaviour
             {
 
                 FloatingText1.SetActive(false);
-                //Destroy(FloatingText1);
                 Destroy(CurveArrow);
+                //CurveArrow.SetActive(false);
                 //yield return new WaitForSeconds(2f);
                 if (created)
                 {
-                    FloatingText2.SetActive(true);
+                    
+                    if (!c)
+                    {
+                        FloatingText2.SetActive(true);
+                        Destroy(FloatingText2, 2f);
+                        c = true;
+                    }
+                    
+
+                    FloatingText3.SetActive(true);
                     //FloatingText2 = Instantiate(FloatingText2, new Vector3(415, 430, 0), Quaternion.identity, parentCanvas);
                     //soundManager.UpdateAudioCollection();
                 }
             }
         }
-        yield return null;
+        //yield return null;
     }
     
 }

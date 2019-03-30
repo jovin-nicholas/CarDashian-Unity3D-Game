@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Marker : MonoBehaviour
 {
-    public GameObject bomb;
-    public Slider power;
-    public Rigidbody car;
-    public static float health;
+    //public GameObject bomb;
+    //public Slider power;
+    //public Rigidbody car;
+    //public static float health;
     public Text text;
 
     public GameObject TheMarker;
@@ -36,6 +36,7 @@ public class Marker : MonoBehaviour
     public GameObject MARK22;
     public GameObject MARK23;
     public GameObject MARK24;
+
     public int MarkTracker;
 
     void Start()
@@ -87,7 +88,6 @@ public class Marker : MonoBehaviour
         if (MarkTracker == 9)
         {
             TheMarker.transform.position = MARK10.transform.position;
-
         }
         if (MarkTracker == 10)
         {
@@ -169,7 +169,7 @@ public class Marker : MonoBehaviour
             MarkTracker++;
             //Destroy(bomb);
 
-            power.value += 10;
+            //power.value += 10;
             
             triggerCheck.count++;
             text.text = "" + triggerCheck.count;

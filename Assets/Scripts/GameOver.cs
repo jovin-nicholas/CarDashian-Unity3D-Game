@@ -35,7 +35,7 @@ public class GameOver : MonoBehaviour
         count = triggerCheck.count;
         rem = triggerCheck.time;
         
-        Debug.Log(triggerCheck.time);
+        //Debug.Log(triggerCheck.time);
 
 
         if (CountDownTimer.gameover || WallCollider.over)
@@ -96,13 +96,16 @@ public class GameOver : MonoBehaviour
 
         if (finalValue < rank.maxValue)
             //rank.value = finalValue + ScoreMultiplier;
-            //rank.value = Mathf.MoveTowards(currentValue,finalValue,Time.timeSinceLevelLoad * 0.035f);
             v = currentValue;
-            while (v <= rank.value)
+            rank.value = Mathf.MoveTowards(currentValue,finalValue,v*0.015f);
+            /*
+            while (v <= finalValue)
             {
-                v = Mathf.Clamp01(finalValue / .9f);
+                v = Mathf.Clamp01(v*Time.deltaTime);
                 rank.value = v;
             }
+            */
+            
 
         while (finalValue >= rank.maxValue)
         {
@@ -110,14 +113,17 @@ public class GameOver : MonoBehaviour
             R++;
             RankMultiplier = 1.2f * R; 
             ScoreMultiplier = finalValue / RankMultiplier;
-            
-            //rank.value = finalValue;
-            while(v <= rank.value)
+
+            rank.value = finalValue;
+            /*
+            while (v <= finalValue)
             {
-                v = Mathf.Clamp01(finalValue/.9f);
+                
+                //v = Mathf.Clamp01(finalValue/.9f);
+                v = Mathf.MoveTowards(0,finalValue,Time.deltaTime * 2.02f);
                 rank.value = v;
             }
-            //rank.value = Mathf.Lerp(0,finalValue,Time.deltaTime * 2.02f);
+            */
             //Health.SliderValue = 0;
         }
 

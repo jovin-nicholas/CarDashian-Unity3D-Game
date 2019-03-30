@@ -12,6 +12,7 @@ public class AccCar : MonoBehaviour, IPointerDownHandler , IPointerUpHandler
     public Toggle n;
     public Toggle r;
     public Slider aslider;
+    public GameObject FloatingText1;
     //public GameObject ReverseCam;
     public static float damage = 0;
 
@@ -47,9 +48,12 @@ public class AccCar : MonoBehaviour, IPointerDownHandler , IPointerUpHandler
         else if (r.isOn)
         {
             //ReverseCam.SetActive(true);
+            FloatingText1.SetActive(true);
+
 
             if (isPointerDown)
             {
+                FloatingText1.SetActive(false);
                 CarSpeed = CarSpeed - 350f * aslider.value;
             }
 

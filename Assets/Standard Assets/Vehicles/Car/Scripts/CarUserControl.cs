@@ -27,6 +27,7 @@ namespace UnityStandardAssets.Vehicles.Car
         {
             // Disable screen dimming
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            Application.targetFrameRate = 300;
         }
 
         private void FixedUpdate()

@@ -43,7 +43,7 @@ public class LevelLoader : MonoBehaviour
             //yield return new WaitForSeconds(0.02f);
             yield return new WaitForSeconds(operation.progress);
             float progress = Mathf.Clamp01(operation.progress / .9f);
-            slider.value = progress;
+            slider.value = (int)progress;
             ProgressText.text = progress * 100f + "%";
 
         }

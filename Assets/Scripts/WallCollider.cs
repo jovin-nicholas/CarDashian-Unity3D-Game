@@ -18,6 +18,7 @@ public class WallCollider : MonoBehaviour
 
     //public static float rem = 0;
     public static bool over;
+    bool m, n, o;
     
     void OnCollisionEnter(Collision col)
     {
@@ -25,9 +26,10 @@ public class WallCollider : MonoBehaviour
         {
             light1.SetActive(false);
             mark1.SetActive(false);
-            triggerCheck.wall++;
+            //triggerCheck.wall++;
             SSTools.ShowMessage("+" + triggerCheck.score, SSTools.Position.top, SSTools.Time.threeSecond);
-            Destroy(gameObject,3f);
+            m = true;
+            //Destroy(gameObject,3f);
             //gameObject.SetActive(false);
         }
 
@@ -35,9 +37,10 @@ public class WallCollider : MonoBehaviour
         {
             light2.SetActive(false);
             mark2.SetActive(false);
-            triggerCheck.wall++;
+            //triggerCheck.wall++;
             SSTools.ShowMessage("+" + triggerCheck.score, SSTools.Position.top, SSTools.Time.threeSecond);
-            Destroy(gameObject,3f);
+            n = true;
+            //Destroy(gameObject,3f);
             //gameObject.SetActive(false);
         }
 
@@ -45,20 +48,24 @@ public class WallCollider : MonoBehaviour
         {
             light3.SetActive(false);
             mark3.SetActive(false);
-            triggerCheck.wall++;
+            //triggerCheck.wall++;
             SSTools.ShowMessage("+" + triggerCheck.score, SSTools.Position.top, SSTools.Time.threeSecond);
-            Destroy(gameObject,3f);
+            o = true;
+            //Destroy(gameObject,3f);
             //gameObject.SetActive(false);
         }
 
-        Debug.Log(triggerCheck.wall);
+        //Debug.Log(triggerCheck.wall);
 
     }
 
     void Update()
     {
-       
-        if (triggerCheck.wall > 45)
+        Condition(m, n);
+        Condition(n, o);
+        Condition(m, o);
+
+        if (triggerCheck.wall > 0)
         {
             StartCoroutine(SceneChange());
         }
@@ -66,13 +73,20 @@ public class WallCollider : MonoBehaviour
 
     IEnumerator SceneChange()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
+        SSTools.ShowMessage("Great!", SSTools.Position.top, SSTools.Time.oneSecond);
         triggerCheck.wall = 0;
         CountDownTimer.gameover = true;
         //rem += 1*Time.deltaTime;
         over = true;
         //SceneManager.LoadScene(3);
 
+    }
+
+    void Condition(bool a,bool b)
+    {
+        if (a && b)
+            triggerCheck.wall++;
     }
 
 }
